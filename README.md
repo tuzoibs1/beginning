@@ -1,1 +1,3 @@
 # beginning
+
+start up 
