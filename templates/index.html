@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code CAD Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🔧 Vibe Code CAD</h1>
+                <p>AI-Powered 3D Design Assistant</p>
+            </div>
+            <div class="status" id="status">
+                <span class="status-indicator"></span>
+                <span class="status-text">Ready</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Chat Area -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h2>Design Chat</h2>
+                    <button class="clear-chat" id="clearChat">Clear Chat</button>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message assistant">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hello! I'm your CAD assistant. Describe what you'd like to design and I'll create a 3D model for you.</p>
+                            <p><strong>Try saying:</strong></p>
+                            <ul>
+                                <li>"Design round smart glasses with 60mm lenses and red rims"</li>
+                                <li>"Create rectangular glasses with thick black frames"</li>
+                                <li>"Make a pair of sunglasses with blue lenses"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Describe your 3D design idea..."
+                            rows="3"></textarea>
+                        <button id="sendButton" class="send-button">
+                            <span class="send-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Preview Area -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>3D Model Preview</h2>
+                    <div class="preview-controls">
+                        <button id="downloadBtn" class="download-btn" disabled>
+                            📥 Download STL
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="preview-container" id="previewContainer">
+                    <div class="preview-placeholder">
+                        <div class="preview-icon">🎯</div>
+                        <p>Your 3D model will appear here</p>
+                        <small>Start by describing a design in the chat</small>
+                    </div>
+                </div>
+
+                <!-- Model Information -->
+                <div class="model-info" id="modelInfo" style="display: none;">
+                    <h3>Model Details</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Object Type:</label>
+                            <span id="objectType">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Dimensions:</label>
+                            <span id="dimensions">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Shape:</label>
+                            <span id="shape">-</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Color:</label>
+                            <span id="color">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAD Code Display -->
+                <div class="code-section" id="codeSection" style="display: none;">
+                    <div class="code-header">
+                        <h3>Generated FreeCAD Code</h3>
+                        <button id="toggleCode" class="toggle-btn">Show Code</button>
+                    </div>
+                    <div class="code-container" id="codeContainer" style="display: none;">
+                        <pre><code id="cadCode"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by OpenAI GPT-4 & FreeCAD | Built with ❤️ for makers</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Generating your 3D model...</p>
+            <small>This may take a few moments</small>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
