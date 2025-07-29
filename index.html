@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands Reference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="title">
+                    <i class="fab fa-git-alt"></i>
+                    Git Commands Reference
+                </h1>
+                <p class="subtitle">Your comprehensive guide to Git commands</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search commands..." autocomplete="off">
+                </div>
+            </div>
+
+            <div class="commands-grid">
+                <section class="command-category" data-category="basic">
+                    <h2 class="category-title">
+                        <i class="fas fa-play-circle"></i>
+                        Basic Commands
+                    </h2>
+                    <div class="commands-list">
+                        <div class="command-item" data-search="version check git">
+                            <div class="command-header">
+                                <code class="command">git -v</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git -v')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Check Git version</p>
+                        </div>
+
+                        <div class="command-item" data-search="initialize repository init">
+                            <div class="command-header">
+                                <code class="command">git init</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git init')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Initialize a new Git repository</p>
+                        </div>
+
+                        <div class="command-item" data-search="add files staging">
+                            <div class="command-header">
+                                <code class="command">git add</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git add')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Add files to staging area</p>
+                        </div>
+
+                        <div class="command-item" data-search="commit save changes">
+                            <div class="command-header">
+                                <code class="command">git commit -m ""</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git commit -m \"\"')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Commit changes with a message</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="command-category" data-category="remote">
+                    <h2 class="category-title">
+                        <i class="fas fa-cloud"></i>
+                        Remote Operations
+                    </h2>
+                    <div class="commands-list">
+                        <div class="command-item" data-search="push upload origin">
+                            <div class="command-header">
+                                <code class="command">git push origin branchName</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git push origin branchName')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Push changes to remote branch</p>
+                        </div>
+
+                        <div class="command-item" data-search="add remote repository url">
+                            <div class="command-header">
+                                <code class="command">git remote add origin url</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git remote add origin url')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Add new remote repository</p>
+                        </div>
+
+                        <div class="command-item" data-search="view remotes list">
+                            <div class="command-header">
+                                <code class="command">git remote -v</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git remote -v')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">View remote repositories</p>
+                        </div>
+
+                        <div class="command-item" data-search="pull merge unrelated histories">
+                            <div class="command-header">
+                                <code class="command">git pull origin branchname --allow-unrelated-histories</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git pull origin branchname --allow-unrelated-histories')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Pull with unrelated histories (fix for merge conflicts)</p>
+                        </div>
+
+                        <div class="command-item" data-search="force push update">
+                            <div class="command-header">
+                                <code class="command">git push -f origin master</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git push -f origin master')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Force push to remote (use with caution!)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="command-category" data-category="branching">
+                    <h2 class="category-title">
+                        <i class="fas fa-code-branch"></i>
+                        Branch Management
+                    </h2>
+                    <div class="commands-list">
+                        <div class="command-item" data-search="checkout switch branch">
+                            <div class="command-header">
+                                <code class="command">git checkout branchName</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git checkout branchName')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Switch to existing branch</p>
+                        </div>
+
+                        <div class="command-item" data-search="list branches current">
+                            <div class="command-header">
+                                <code class="command">git branch</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">List branches and show current branch</p>
+                        </div>
+
+                        <div class="command-item" data-search="create new branch">
+                            <div class="command-header">
+                                <code class="command">git branch name-branch</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch name-branch')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Create a new branch</p>
+                        </div>
+
+                        <div class="command-item" data-search="merge branches combine">
+                            <div class="command-header">
+                                <code class="command">git merge branch-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git merge branch-name')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Merge branch into current branch</p>
+                        </div>
+
+                        <div class="command-item" data-search="delete branch remove">
+                            <div class="command-header">
+                                <code class="command">git branch -D master</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch -D master')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Delete a branch (force delete)</p>
+                        </div>
+
+                        <div class="command-item" data-search="rename branch">
+                            <div class="command-header">
+                                <code class="command">git branch -m master</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git branch -m master')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Rename current branch to master</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="command-category" data-category="advanced">
+                    <h2 class="category-title">
+                        <i class="fas fa-cogs"></i>
+                        Advanced Operations
+                    </h2>
+                    <div class="commands-list">
+                        <div class="command-item" data-search="reset hard undo changes">
+                            <div class="command-header">
+                                <code class="command">git reset HEAD --hard id</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git reset HEAD --hard id')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Reset to specific commit (destructive - use with caution!)</p>
+                        </div>
+
+                        <div class="command-item" data-search="remove files delete">
+                            <div class="command-header">
+                                <code class="command">git rm -r folder-name</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git rm -r folder-name')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Remove folder/files from repository</p>
+                        </div>
+
+                        <div class="command-item" data-search="orphan branch history clean">
+                            <div class="command-header">
+                                <code class="command">git checkout --orphan latest_branch</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git checkout --orphan latest_branch')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Create orphan branch (no history)</p>
+                        </div>
+
+                        <div class="command-item" data-search="add all files staging">
+                            <div class="command-header">
+                                <code class="command">git add -A</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git add -A')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Add all files (including deletions)</p>
+                        </div>
+
+                        <div class="command-item" data-search="commit all changes">
+                            <div class="command-header">
+                                <code class="command">git commit -am "commit message"</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git commit -am \"commit message\"')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Add and commit all changes in one step</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="command-category" data-category="config">
+                    <h2 class="category-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Configuration
+                    </h2>
+                    <div class="commands-list">
+                        <div class="command-item" data-search="credentials store password">
+                            <div class="command-header">
+                                <code class="command">git config credential.helper store</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git config credential.helper store')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="command-description">Store credentials to avoid repeated login prompts</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Git Commands Reference. Made with <i class="fas fa-heart"></i> for developers.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
